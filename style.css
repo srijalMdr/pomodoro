@@ -1,0 +1,67 @@
+/* style.css*/
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background: #79b425;
+  flex-direction: column;
+  margin: 0;
+  transition: background-color 0.3s;
+}
+
+.main {
+  /* background-color: #fff; */
+  background-color: #c0de7b;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 500px;
+  height: 400px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.h1 {
+  color: #ebe9e1;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+}
+.timer-circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  /* color: crimson; */
+  color: #ebe9e1;
+  /* border: 8px solid #3498db; */
+  border: 8px solid #ebe9e1;
+}
+
+.control-buttons {
+  margin-top: 75px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.control-buttons button {
+  background-color: #ebebeb;
+  color: #474b47;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.control-buttons button:hover {
+  /* background-color: #266094; */
+  background-color: #d8d9da;
+  transition: background-color 0.3s;
+}
