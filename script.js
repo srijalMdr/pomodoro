@@ -3,8 +3,10 @@
 let timer = null;
 let minutes = 25;
 let seconds = 0;
-let isPaused = true;
+let isPaused = false;
 let enteredTime = null;
+let audio = new Audio("timer.mp3");
+audio.preload = "auto";
 
 const timerElement = document.getElementById("timer");
 const pauseResumeButton = document.querySelector(".control-buttons button");
@@ -26,18 +28,55 @@ const startTimer = function () {
   }
 };
 
+// const updateTimer = function () {
+//   timerElement.textContent = formatTime(minutes, seconds);
+//   if (minutes === 0 && seconds === 0) {
+//     audio.play();
+//     pomodoro();
+//     // chooseTime();
+//   } else if (!isPaused) {
+//     if (seconds > 0) {
+//       --seconds;
+//     } else {
+//       seconds = 59;
+//       minutes--;
+//     }
+//   }
+// };
+const pomodoro = function () {
+  document.querySelector(".h1").textContent = `Pomodoro Mode`;
+  minutes = chooseTime();
+  changeColor("#79b425", "#c0de7b");
+  //   changeColor("#fd5602", "#fe6e00");
+  restartTimer(minutes);
+};
+
 const updateTimer = function () {
-  timerElement.textContent = formatTime(minutes, seconds);
-  if (minutes === 0 && seconds === 0) {
-    alert("Time is up");
-    chooseTime();
-  } else if (!isPaused) {
-    if (seconds > 0) {
-      seconds--;
-    } else {
-      seconds = 59;
-      minutes--;
+  if (!isPaused) {
+    if (minutes === 0 && seconds === 0) {
+      audio.play();
+      // setTimeout(pomodoro, 10);
+      return;
     }
+
+    if (seconds > 0) {
+      --seconds;
+    } else if (minutes > 0) {
+      seconds = 59;
+      --minutes;
+    }
+  }
+  timerElement.textContent = formatTime(minutes, seconds);
+};
+
+const chooseTime = function () {
+  const enteredTime = prompt("Enter time in minutes");
+  minutes = parseInt(enteredTime);
+  if (!isNaN(minutes) && minutes > 0) {
+    return minutes;
+  } else {
+    alert("Please enter valid time");
+    return;
   }
 };
 
@@ -65,9 +104,9 @@ function restartTimer(min) {
   timer = null;
   minutes = min;
   seconds = 0;
-  isPaused = true;
+  isPaused = false;
   timerElement.textContent = formatTime(minutes, seconds);
-  pauseResumeButton.textContent = "Resume";
+  // pauseResumeButton.textContent = "Pause";
   startTimer();
 }
 
@@ -77,10 +116,7 @@ btnPause.addEventListener("click", function () {
 });
 
 btnPomodoro.addEventListener("click", function () {
-  document.querySelector(".h1").textContent = `Pomodoro Mode`;
-  changeColor("#79b425", "#c0de7b");
-  //   changeColor("#fd5602", "#fe6e00");
-  restartTimer(25);
+  pomodoro();
 });
 
 btnShortBreak.addEventListener("click", function () {
