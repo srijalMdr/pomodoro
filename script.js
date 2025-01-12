@@ -46,8 +46,8 @@ const startTimer = function () {
 const pomodoro = function () {
   document.querySelector(".h1").textContent = `Pomodoro Mode`;
   minutes = chooseTime();
-  changeColor("#79b425", "#c0de7b");
-  //   changeColor("#fd5602", "#fe6e00");
+  // changeColor("#8dc71e", "#c0de7b");
+  changeColor("#4cbb17", "#8dd06c");
   restartTimer(minutes);
 };
 
@@ -121,7 +121,8 @@ btnPomodoro.addEventListener("click", function () {
 
 btnShortBreak.addEventListener("click", function () {
   document.querySelector(".h1").textContent = "Short Break Mode";
-  changeColor("#519dc4", "#87d2f8");
+  // changeColor("#2196f3", "#59bfff");
+  changeColor("#2196f3", "#64b5f6");
   restartTimer(5);
 });
 
