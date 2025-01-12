@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
   min-height: 100vh;
-  background: #79b425;
+  background: #4cbb17;
   flex-direction: column;
   margin: 0;
   transition: background-color 0.3s;
@@ -14,7 +14,7 @@ body {
 
 .main {
   /* background-color: #fff; */
-  background-color: #c0de7b;
+  background-color: #8dd06c;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
