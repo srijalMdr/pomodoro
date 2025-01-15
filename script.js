@@ -55,7 +55,9 @@ const updateTimer = function () {
   if (!isPaused) {
     if (minutes === 0 && seconds === 0) {
       audio.play();
-      // setTimeout(pomodoro, 10);
+      setTimeout(() => {
+        audio.pause();
+      }, 10000);
       return;
     }
 
@@ -76,7 +78,7 @@ const chooseTime = function () {
     return minutes;
   } else {
     alert("Please enter valid time");
-    return;
+    return 25;
   }
 };
 
